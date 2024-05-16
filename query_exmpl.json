@@ -21,3 +21,48 @@
     }
   }
 }
+
+{
+  "query": {
+    "match": {
+      "message": {
+        "query": "this is a test",
+        "operator": "and"
+      }
+    }
+  }
+}
+
+
+{
+"source": "https://stackoverflow.com/questions/60646098/what-is-difference-between-match-and-bool-must-match-query-in-elasticsearch"
+}
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {"match": { "address": "mill" } }
+      ]
+     }
+   }
+}
+
+{
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "address": "mill"
+                    }
+                },
+                {
+                    "must_not": {
+                        "first_name": "parker"
+                    }
+                }
+            ]
+        }
+    }
+}
